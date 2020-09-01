@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from dynamics import MatrixGame
-from setup import Game
+from game_play.dynamics import MatrixGame
+from game_play.setup import Game
 
 class SISC():
     def __init__(self, game, num_runs, sim_time):

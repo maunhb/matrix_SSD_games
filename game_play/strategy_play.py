@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from dynamics import MatrixGame
-from setup import Game
+from game_play.dynamics import MatrixGame
+from game_play.setup import Game
 
 class Play():
     def __init__(self, game, strategy, num_runs, sim_time, beta=0.5, coop_level=0.5):
