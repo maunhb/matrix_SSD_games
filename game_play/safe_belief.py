@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from game_play.dynamics import MatrixGame
 from game_play.setup import Game
 
-class SISC():
+class ARCTIC():
     def __init__(self, game, num_runs, sim_time):
         self.game = game
         self.runs = num_runs
