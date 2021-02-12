@@ -40,7 +40,7 @@ class Play():
                 strat1, strat2 = env.intended_actions() 
                 a_1, a_2, r_1, r_2 = env.step()
 
-                if opponent == "SISC":
+                if opponent == "ARCTIC":
                     _, e_u2 = self.exp_utility(a_1, strat2)
                     env.change_opp_epsilon(env.opp_epsilon + e_u2 - self.value)
 
@@ -88,7 +88,7 @@ class Play():
         dfile.close()
 
     def play_all_opponents(self):
-        opponents = ["SISC", "pC belief", "Adversarial", "pA belief",
+        opponents = ["ARCTIC", "pC belief", "Adversarial", "pA belief",
                      "Tit for Tat", "All C", "Random"]
         for opp in opponents:
             self.write_data_file(opp)

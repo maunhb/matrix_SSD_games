@@ -30,7 +30,7 @@ class SISC():
                             error=0.05, 
                             x=coop_level)
 
-        print("SISC playing against {}".format(opponent))
+        print("ARCTIC playing against {}".format(opponent))
         for run in range(self.runs):
             env.reset()
             for t in range(self.sim_time):
@@ -69,7 +69,7 @@ class SISC():
                                                                     coop_level=x, 
                                                                     beta=beta)  
 
-        dfile = open('{}/SISC_vs_{}_x={}_beta={}_time_{}.csv'.format(self.game,
+        dfile = open('{}/ARCTIC_vs_{}_x={}_beta={}_time_{}.csv'.format(self.game,
                                                                     opponent_type, 
                                                                     x, 
                                                                     beta, 
@@ -88,7 +88,7 @@ class SISC():
         dfile.close()
 
     def play_all_opponents(self, x, beta):
-        opponents = ["SISC", "pC belief", "Adversarial", "pA belief",
+        opponents = ["ARCTIC", "pC belief", "Adversarial", "pA belief",
                      "Tit for Tat", "All C", "Random"]
         for opp in opponents:
             self.write_data_file(opp, x, beta)

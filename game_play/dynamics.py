@@ -4,7 +4,7 @@ import random
 
 class MatrixGame():
     def __init__(self, sim_time, game="prisoners",
-                 strategy="pC belief", opponent="SISC",
+                 strategy="pC belief", opponent="ARCTIC",
                  epsilon=0, num_strats=20, 
                  beta=0.5, beta_plus=1, beta_minus=0, 
                  error=0.05, x=0.5):
@@ -86,7 +86,7 @@ class MatrixGame():
                                                self.game.payoffs(self.possible_actions,
                                                                  self.pC_belief(self.possible_actions)[1])[0])
             return np.argmax(expected_payoff)*(1/self.num_strats)
-        elif self.strategy == "SISC":
+        elif self.strategy == "ARCTIC":
             expected_payoff, _ = self.game.payoffs(self.possible_actions,
                                                    self.safe_pC_belief(self.possible_actions)[0])
             for time in range(self.game_length - self.sim_step):
@@ -142,7 +142,7 @@ class MatrixGame():
                                                 self.game.payoffs(self.safe_actions, 
                                                                     self.pC_belief(self.possible_actions)[1])[0])
             return np.argmax(expected_payoff)*(1/self.num_strats)
-        elif self.opponent == "SISC":
+        elif self.opponent == "ARCTIC":
             initial_play = np.multiply(1-self.opp_epsilon,self.adv_belief()[0]) + np.multiply(self.opp_epsilon,
                                                                                 self.pC_belief(self.possible_actions)[0])
             future_play = np.multiply(1-self.opp_epsilon,self.adv_belief()[1]) + np.multiply(self.opp_epsilon,
