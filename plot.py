@@ -2,17 +2,19 @@ import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt
 
+## choose parameters:
 num_runs = 10
 sim_time = 10
 game = "prisoners"
-strategy = "SISC"
+strategy = "ARCTIC"
 opponents = ["Adversarial", "All C", 
              "pA belief","pC belief", 
-             "Random","SISC", "Tit for Tat",]
+             "Random","ARCTIC", "Tit for Tat",]
 X = 0.5
 Beta = 0.5
 
-if strategy == "SISC":
+## ------
+if strategy == "ARCTIC":
     fig, axs = plt.subplots(2)
     for opp in opponents:
         data = pd.read_csv('{}/{}_vs_{}_x={}_beta={}_time_{}.csv'.format(game,
@@ -30,18 +32,18 @@ if strategy == "SISC":
     axs[0].legend(bbox_to_anchor=(1.1, 1.05))
     axs[1].set_ylim([-0.05,1.05])
     axs[1].set(xlabel='Time', ylabel='Cooperation')
-    fig.suptitle('SISC playing {}'.format(game))
-    fig.savefig('{}_playing_{}'.format(strategy, game),bbox_inches='tight',dpi=100)
+    fig.suptitle('ARCTIC playing {}'.format(game))
+    fig.savefig('./figures/{}_playing_{}'.format(strategy, game),bbox_inches='tight',dpi=100)
 
 else:
     plt.figure()
     for opp in opponents:
         data = pd.read_csv('{}/{}_vs_{}_x={}_beta={}_time_{}.csv'.format(game,
-                                                                            strategy,
-                                                                            opp, 
-                                                                            X, 
-                                                                            Beta,
-                                                                            sim_time), sep=',')
+                                                                         strategy,
+                                                                         opp, 
+                                                                         X, 
+                                                                         Beta,
+                                                                         sim_time), sep=',')
 
         plt.plot(data['time'], data['cooperation_1'], label=opp)
 
@@ -51,6 +53,6 @@ else:
     plt.ylabel("Cooperation")
     plt.legend()
 
-    plt.savefig('{}_playing_{}'.format(strategy, game))
+    plt.savefig('./figures/{}_playing_{}'.format(strategy, game))
 
 plt.show
